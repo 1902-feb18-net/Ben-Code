@@ -165,3 +165,39 @@
         - Cannot be on member
     - Partial
         - Cannot be on member
+
+## Access Modifiers
+- Public
+    - Can be accessed from anywhere
+- Internal
+    - If the user is in the same assembly/project
+- Private
+    - Member can only be used by the class internally
+- Protected
+    - If the class is the current class or a derived class
+- Protected internal:
+    - If the user is a derived class and within the same project
+- Private protected
+    - Not important
+
+## Exception Handling
+- ArgumentNullException:
+- ArgumentException : when given a bad argument
+- Use "try" and "catch"
+    - Where eyou try to catch error and give some form of feedback or fallback value
+    - Try is when you try to run some method and see if it works, if not you go catch the error
+- When using "catch"
+    - catch(Exception e) catches all exceptions, but is bad and lazy, be more specific
+        - Unlss you're trying to just keep a record of the except and not handle it here, then it's fine
+    - catch(ArgumentException e) catches bad arguments
+    - catch(ArgumentNullException e) catches null arguments
+    - catch() is like catch(Exception e)
+- Throw passes the exception on to the next catch
+    - Using "throw" by itself leaves the stack trace of the exception unchanged
+    - Using "throw e" overwrites its stack trace with the current line
+        - Don't use this, you want to knwo where the exception comes from
+- Sometimes the stack trace doesn't follow ths previous specification
+- Finally block contains code that runs after the try / catch code, whether or not there was an exception handled or unhandled
+    - The purpose of the finally block is where you release resources that should be released regardless of error or success
+    - For example, if you're trying to read/write from a file, at the end you need to close down the file whether or not you succeeded
+    - The finally block would run even when code below it wouldn't because of an unhandled excecption
