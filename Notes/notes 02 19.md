@@ -115,3 +115,53 @@
     - If Git Pull is used, information from the remote repo is pulled to all three other locations, the working directory, index, and local repo
 - Stash: Temporary storage/stack of temporary changes
     - Use git stash to put things on the stash
+
+## Extended Modifiers
+ - Class
+    - Static
+        - Static cannot be instantiated into object
+            - meant to be namespace for members, just a container for methods
+        - all classes can have static members
+            - static classes can only  have static members
+    - Virtual
+        - Cannot be on class
+    - Override
+        - Cannot be on class
+    - New
+        - Cannot be on class
+    - Const
+        - Cannot be on class
+    - Readonly
+        - Cannot be on class
+    - Abstract
+        - Can be a class
+        - The only kind of class that can have abstract members
+    - Sealed
+        - Can be on class
+        - Cannot derive classes from it
+    - Partial
+        - Can be on class
+        - A class defined in more than one file
+- Member
+    - Static
+        - Not tied to specific instance or obj, cannot access on any non-static data
+    - Virtual
+        - Can have on member
+    - Override
+        - Can be on member
+    - New
+        - Can be on member
+    - Const
+        - Can be on member
+        - Can't be changed after initialization
+    - Readonly
+        - Can be on member
+        - Similar to const, cannot change valuea after its constructed
+        - However, until it has been fully constructed it can be changed
+        - Similar to int x {public get; private set; }
+    - Abstract
+        - Can be on member
+    - Sealed
+        - Cannot be on member
+    - Partial
+        - Cannot be on member
