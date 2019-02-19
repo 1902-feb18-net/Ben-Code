@@ -26,9 +26,33 @@ namespace Animals.Library
         //instead of using getters and setters,
         //  in C# we have properties where other languages
         //  would just use fields on their own
+        
+        //simplest property is "auto implemented" property
+        //a field is generated behind the scenes to back this property
+        //some "backing field"
+        public int ID {get; set;} = 0;
+        //The following variable and get/set method is equivalent 
+            //to the auto implemented property
+        private string _name;
+        public string Name 
+        { 
+            get
+            {
+                return _name;
+            }
+            set
+            {
+                //inside "set" we have an implicit argument "value"
+                //could add other logic as well
+                _name = value;
+            }
+        }
+        //property syntax provides getters and setters pretending
+        //  to be a field
 
-
-
+        //we can have properties without set or without get
+        public string Color { get; } = "Brown";
+        public string Breed { get; set; }
         //methods
         public void GoTo(string location)
         {
