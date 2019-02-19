@@ -1,0 +1,90 @@
+# 02/19/2019 Notes
+
+## List of topics to know for next week review
+- Explain the tools we use
+- C# anatomy
+    - Languages
+    - Compiler
+    - Runtime
+    - Platform
+    - General features
+    - Program structure
+- .NET building blocks
+    - Framework
+    - Standard
+    - Core
+    - Project assembly
+    - Solution
+    - Application
+    - Library infrastructure
+- Terms
+    - CLI, CLR, CTS, BCL, VES, JIT compiler, CIL/MSIL
+- Managed/unmanaged data types
+- Value and Reference
+- Access modifiers
+- Extended modifiers
+- Class
+- Struct
+- Interface
+- Enum
+- Separation of concerns
+    - KISS
+    - DRY
+    - Comments
+- OOP Principles
+    - Abstraction
+    - Polymorphism
+    - Encapsulation
+    - Inheritance
+- Advanced data types
+    - Upcasting
+    - Downcasting
+    - Explicit
+    - Boxing
+    - is??
+    - ref
+    - out
+    - typeof
+- Serialization
+    - XML
+    - JSON
+    - File I/O
+    - Regular expressions
+- Exception handling
+    - Try
+    - Catch
+    - Finally
+    - Throw
+- Testing
+    - Unit test
+    - XUnit
+    - Arrange/act/assert? TDD
+- Debugging
+- Logging
+- SOLID principles
+- Delegates
+    - Action
+    - Func
+    - Lambda
+    - LINQ
+    - Events
+- Task
+    - Async
+    - Await
+- Git
+    - Status
+    - Add
+    - Commit
+    - Push
+    - PUll
+    - Diff
+    - Log
+    - Clone
+- Bash
+    - Is
+    - Mkdir
+    - Cd
+    - Rm
+        - -R
+        - Rf
+
