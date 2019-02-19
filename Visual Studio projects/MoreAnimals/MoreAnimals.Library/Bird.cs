@@ -28,6 +28,8 @@ namespace MoreAnimals.Library
             Console.WriteLine($"Flying to {location}");
         }
 
+
+
         //because we don't have all implementation, it's impossible
         //  to construct an object from an abstract class
     }

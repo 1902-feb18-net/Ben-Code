@@ -13,10 +13,11 @@ namespace MoreAnimals.Library
             Console.WriteLine("Screech");
         }
 
-        //attempt to overrid inherited "GoTo"
-        public void GoTo(string location)
+        //override is the counterpart to virtual
+        //overried goes on the child class
+        public override void GoTo(string location)
         {
-            Console.WriteLine($"I'm an eagle, flying to {location}");
+            Console.WriteLine($"I'm an eagle flying to the {location}");
         }
     }
 }

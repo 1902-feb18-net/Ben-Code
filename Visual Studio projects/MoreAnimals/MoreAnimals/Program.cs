@@ -60,8 +60,12 @@ namespace MoreAnimals
             {
                 Console.WriteLine(item.Name);
                 item.MakeNoise();
-                item.GoTo("park"); //here we can't see Eagle.GoTo, whinc only hides
+                item.GoTo("park"); //here when we weren't using virtual/override
+                                    //here we can't see Eagle.GoTo, whinc only hides
                                     //ABird.GoTo without truly overriding it
+
+            //once we use virtual/override, it really does replace the method implementation
+            //on the object itself
             }
 
             Eagle eagle1 = (Eagle)animals[1];
