@@ -85,5 +85,33 @@
     - Mkdir
     - Cd
     - Rm
-        - -R
-        - Rf
+        - -R for recursive to remove everything in the folder
+        - Rf is force to actually go with it, be careful
+
+## Git Organization
+- From top to bottom:
+    - Remote repository (GitHub)
+    - Local repository
+    - Index (staging area)
+    - Working directory/tree
+- Local repository and index both point to the .git folder
+- The working directory points towards the license and readme.md
+- Version control system (VCS)
+- Source control management (SCM) tool
+- Git is a distributed VCS (in contrast to other popular VCS)
+- Other VCS include:
+    - SVN (subversion)
+    - Hg (mercurial)
+    - TFS (team foundation server)
+- In a centralized VCS, there is one system that is connected to everything
+- In a distributed VCS, everyone has a copy of the whole repo
+- Working directory/tree: Current state of files as far as non-git aware programs can see
+- Index: Temporary place to prepare for a commit (after you use git add but before you use git commit)
+    - If git reset is called, information goes back to working directory
+    - If git diff is called, compares index files with the files in working directory
+- Local repository: where commits are stored along with a permanent record of the history of commits
+    - If git diff --cached is called, compares information between local repo and index
+- Remote repository: Someone else's recrod of history in commits, basically GitHub (reached after Git Push)
+    - If Git Pull is used, information from the remote repo is pulled to all three other locations, the working directory, index, and local repo
+- Stash: Temporary storage/stack of temporary changes
+    - Use git stash to put things on the stash
