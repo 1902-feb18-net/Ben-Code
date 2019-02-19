@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Animals.UI
+namespace Animals.Library
 {
     class Program
     {

@@ -7,6 +7,28 @@ namespace Animals.Library
         //fields
         internal string Noise = "Woof";
 
+        //getter
+        public string getNoise()
+        {
+            return $"{Noise}!";
+        }
+
+        //setter
+        public void setNoise(string newValue)
+        {
+            if (newValue == null || newValue.Length <= 0)
+            {
+                throw new ArgumentException("value must not be null or empty");
+            }
+            Noise = newValue;
+        }
+
+        //instead of using getters and setters,
+        //  in C# we have properties where other languages
+        //  would just use fields on their own
+
+
+
         //methods
         public void GoTo(string location)
         {
