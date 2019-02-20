@@ -13,6 +13,10 @@ namespace Collection
             Sets();
             Maps();
             StringEquality();
+
+            //couple other collections:
+            new Stack<int>(); //first-in, last-out
+            new Queue<int>(); //first-in, first-out
         }
 
         static void Arrays()
