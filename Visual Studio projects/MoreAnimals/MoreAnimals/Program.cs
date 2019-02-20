@@ -71,14 +71,18 @@ namespace MoreAnimals
             Eagle eagle1 = (Eagle)animals[1];
             eagle1.GoTo("park");
 
-            //MakeNoise(dog3);
-            //we use camelCase for local variables and private fields
-            //TitleCase for everything else
-
-            //static void MakeNoise(IAnimal anm)
-            //{
-            //    anm.MakeNoise();
-            //}
+            try
+            {
+                Console.WriteLine("What should the dog say?");
+                string input = Console.ReadLine();
+                fido1.SetNoise(input);
+            }
+            catch
+            {
+                Console.WriteLine("caught ArgumentException! using fallback value");
+                fido1.SetNoise("woof");
+            }
+            Console.WriteLine(fido1.GetNoise());
         }
     }
 }

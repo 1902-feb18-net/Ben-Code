@@ -13,10 +13,28 @@ namespace MoreAnimals.Library
         public int Id { get; set; }
         public string Name { get; set; }
         public string Breed { get; set; }
-
+        public string Noise;
         public void MakeNoise()
         {
             Console.WriteLine("Woof!");
+        }
+
+        public void SetNoise(string newValue)
+        {
+            if (newValue == null)
+            {
+                throw new ArgumentNullException("newValue");
+            }
+            if (newValue.Length <= 0)
+            {
+                throw new ArgumentException("argument is empty", "newValue");
+            }
+            Noise = newValue;
+        }
+
+        public string GetNoise()
+        {
+            return Noise;
         }
 
         public void GoTo(string location)
