@@ -58,15 +58,15 @@ namespace ML.Test
         }
 
         [Theory]
-        [InlineData(5)] //should return true
-        [InlineData(80)] //should return false
-        [InlineData(-5)] //should return true
+        [InlineData(6)] //should return true
+        [InlineData(90)] //should return false
+        [InlineData(-6)] //should return true
         public void ShouldReturnTrueIfValueWasEverIncluded(int value)
         {
             var memoryList = new MemoryList<int>();
-            memoryList.Add(5);
-            memoryList.Add(-5);
-            memoryList.Remove(-5);
+            memoryList.Add(6);
+            memoryList.Add(-6);
+            memoryList.Remove(-6);
 
             var result = memoryList.HasEverContained(value);
             Assert.True(result);
