@@ -108,6 +108,9 @@ namespace ExtensionMethodsAndLINQ
                 Console.WriteLine(item);
             }
 
+
+
+
             //when we DON'T want deferred exectuion, we want all the values right now...
             //  we often use .ToList()
 
@@ -116,6 +119,9 @@ namespace ExtensionMethodsAndLINQ
             asdf.Last();
             asdf.Last();
             //we sometimes want to avoid running the operations repetitively
+
+            //apart from being used for LINQ, the importance of IEnumerable is
+            //  that it allows iterating with foreach statement
 
         }
 

@@ -19,7 +19,7 @@ namespace ML.Test
 
             list.Add(value);
 
-            Assert.True(list.Contains(value));
+            Assert.Contains(value, list);
         }
 
         [Theory]
@@ -53,7 +53,7 @@ namespace ML.Test
             memoryList.Add(80);
 
             memoryList.Remove(value);
-            Assert.False(memoryList.Contains(value));
+            Assert.DoesNotContain(value, memoryList);
 
         }
 
