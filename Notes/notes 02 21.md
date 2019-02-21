@@ -13,6 +13,10 @@
     - Typescript/JS
 - Provides limited interoperability between languages
     - Provides similar infrastructure for different languages to work with others
+    - cross-platform independent
+    - Architecture independent
+    - Universal exception handling
+    - Universal managed environments (garbage collecting)
 - Provides interface for anyone to make .NET runtime
 - **.NET Common language infrastructure (CLI)**
 - **.NET Command Line Interface (CLI)**
@@ -47,7 +51,11 @@
     - Mono
         - Came before .NET framework, was a port for Mac/Linux
         - Somewhat obsolete since .NET Core came into the picture
+
 - ADO.NET: Data access
 - ASP.net: Web development
 - WPF: Windows style popups and form control, wouldn't work with Mono
 - WCF: Web service
+- .NET Standard
+    - A common definition for what both .NET Framework and .NET Core should have and do
+    - The common subset that both .NET Framework and .NET Core agree with
