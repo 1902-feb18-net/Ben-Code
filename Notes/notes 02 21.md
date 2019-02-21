@@ -62,7 +62,7 @@
     - The common subset that both .NET Framework and .NET Core agree with
     - VES implementation is called **Common Language Runtime (CLR)**
 
-## OOP Principles
+## OOP Principles (WHAT ARE THEY, AND WHAT IS AN EXAMPLE OF EACH)
 - Abstraction
     - Separation between needed functionality and implementation details
     - In a way the other 3 principles are aspects of abstraction
