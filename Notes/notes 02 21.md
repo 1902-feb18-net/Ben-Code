@@ -92,3 +92,15 @@
         - **Composition** "has a"
             - Takes fields/properties
             - Can use non-virtual fields or methods
+
+## Seralization and Asynchronous programming
+- Steps for Async
+    - filler filler filler
+- When we make code async, the method has to have the "async" modifier
+- The methods needs to return a Task (for void-return) or a `Task<Something>` if we wanted to return something
+- the method should say Async at the end of its name (for self-documenting purposes)
+- When we call Async methods in our own methods, we need to "await" the tasks they give us
+- Can use "await" keyword
+- When the method executing reaches an await statment, it allows other code to run in the meantime (outside the class/method)
+- Main can't be async so you have to use `persons = DeserializeSMLFromFileAsync(filename).Result` with an emphasis  on the `.Result`
+- Async code requires async tests
