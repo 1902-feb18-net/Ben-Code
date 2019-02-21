@@ -1,6 +1,7 @@
 # 02/21/2019
 
 ## LINQ
+- Consider practicing this later on instead of conventional code for practice
 
 ## .NET
 - .NET is a platform for many languages
@@ -59,3 +60,35 @@
 - .NET Standard
     - A common definition for what both .NET Framework and .NET Core should have and do
     - The common subset that both .NET Framework and .NET Core agree with
+    - VES implementation is called **Common Language Runtime (CLR)**
+
+## OOP Principles
+- Abstraction
+    - Separation between needed functionality and implementation details
+    - In a way the other 3 principles are aspects of abstraction
+    - Example:
+        - Properties
+        - Methods
+        - Common type system
+- Encapsulation
+    - Restricting access to information within objects
+    - Packaging related things together and treating them as a unit
+    - Examples:
+        - Objects
+        - Access modifiers
+- Polymorphism
+    - The possibility of many implementations behind a common contract
+    - Method overriding
+        - Can change between which version of a function to be called, whether it be the most recent or the older (virtual) version
+    - Method overloading
+        - The same function can accept different numbers or types of parameters
+    - Ability to treat a derived class object as thought it were a base class object
+- Inheritance
+    - The ability for a class to take and extend behavior from another class
+    - Example
+        - Have MemoryList take all that a List can but also do more
+    - Inheritance vs Compositioin
+        - Inheritance "is a"
+        - **Composition** "has a"
+            - Takes fields/properties
+            - Can use non-virtual fields or methods
