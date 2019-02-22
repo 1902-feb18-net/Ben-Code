@@ -2,6 +2,7 @@
 using NLog.Fluent;
 using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 namespace RefAndOut
 {
@@ -85,16 +86,47 @@ namespace RefAndOut
             ILogger logger = LogManager.GetCurrentClassLogger();
             logger.Debug("logger created succeessfully");
 
-            try
+            //try
+            //{
+            //    int.Parse("abc");
+            //}
+            //catch (FormatException ex)
+            //{
+            //    logger.Error(ex);
+            //    throw;
+            //}
+
+            var logLine = "2019-02-22 10:31:00.3678 DEBUG logger created succeessfully";
+            var match = Regex.Match(logLine, @"[\d-]+ [\d:.]+ (\w+)");
+            //Regex syntax:
+            //"Character classes": 
+            //\d for all digits, 
+            //\w for all word characters, letters, numbers, and _
+            //\s for all whitespace, most of these have an opposite version with uppercase
+            //\S for all non-whitespace
+            //[abcd] means, one character, EITHER a, b, c, or d
+
+            //a* means 0 to many 'a' chars
+            //a+ mean 1 to many 'a' chars
+
+            //() are for surrounding groups of chararcters that you 
+            //  want to extract later
+
+            //third capture
+            string logLevel = match.Groups[3].Value;
+            string dateStr = match.Groups[1] + " " + match.Groups[2];
+            if (DateTime.TryParse(dateStr, out var date))
             {
-                int.Parse("abc");
+                Console.WriteLine(date);
             }
-            catch (FormatException ex)
+            else
             {
-                logger.Error(ex);
-                throw;
+                Console.WriteLine($"couldn't parse date {dateStr}");
             }
 
+            
+
+            Console.WriteLine(logLevel);
 
             Console.ReadLine(); //wait until finished
         }
