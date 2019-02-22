@@ -102,5 +102,35 @@
 - When we call Async methods in our own methods, we need to "await" the tasks they give us
 - Can use "await" keyword
 - When the method executing reaches an await statment, it allows other code to run in the meantime (outside the class/method)
+- **Async function must have an "await," "wait," or ".Result" method**
 - Main can't be async so you have to use `persons = DeserializeSMLFromFileAsync(filename).Result` with an emphasis  on the `.Result`
 - Async code requires async tests
+- Can serialize in JSON format instead of XML
+    - DataContractSerializer (build-in to .NET)
+    - JSON.NET (aka  Newtonsoft JSON) (third-party)
+        - persons = ```csharp
+        JsonConvert.DeserializeObject<List<Person>>(File.ReadAllTextAsync(jsonFile).Result)
+        string newData = JsonConvert.SerializeObject(persons);
+        File.WriteAllTextAsync(jsonFile, newData)
+        ```
+- `[XmlIgnore]` causes XML (or JSON.NET if you change XML to JSON) to ignore the data and not include it
+        
+## PROJECT 0
+- Console application to manage a store and inventory
+- Keep track of customers
+- Keep track of stores/locations
+- Keep track of orders and order history
+- statistics on orders
+    - What day did the most sales come in on?
+    - Try using LINQ
+- Inventory
+- Complexity to things you can buy
+    - a non-simple relationship between inventory and product
+    - ex: order pizza at pizza store, maybe have dough/cheese/etc as well as just "pizza"
+    - More complex things should be there, and you should be able to order more than one thing per order
+- Business rules
+    - ex: no more than 10 pizzas per order allowed
+- Menu-based interface
+- Have save/load from file options
+- Have testing project for library
+- 3 projects: Library, Console, Tests for library
