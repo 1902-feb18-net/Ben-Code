@@ -3,6 +3,10 @@
 ## General notes
 - [Rubular]https://rubular.com/
     - Good for learning regex syntax
+- QC will be on Tuesday 9:30
+- Monday: Quiz on Revature Pro
+    - Some kind of coding assessment 
+    - 1 on 1 mock interviews
 
 ## SOLID Principles
 - *Single-responsibility principle*
