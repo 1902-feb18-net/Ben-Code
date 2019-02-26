@@ -44,6 +44,7 @@
     - Ex: in table 1, cannot insert an Amazon product without knowing their phone number
 - **Normalization**
     - Process of restructuring how our data is set up
+    - Non-CK columns should depend on "the keys (1NF), the whole keys (2NF), and nothing but the keys (3NF)"
     - First Normal Form (1NF)
         - Theorists and developers have slightly different ideas
         1. No duplicate rows (enforce that with a primary key)
@@ -54,9 +55,31 @@
             - Instead, you can add another row with the color entry being different
             - Make the composite primary key of Primary ID and color (or Product and Color)
             - Alternatively, alter ID so that it refers to color and product instead of just product (table 1b)
+        - Table 1b is in 1NF and is in a "N-to-1" relationship between color and product/ID
     - Second Normal Form (2NF)
-    - Third Normal  Form (3NF)
+        1. Is in 1NF
+        2. No non-candidate key column may depend on PART of any composite candidate key (as opposed to the entire thing)
+            - No partial dependency
+            - Table 2 is not in 2NF because Region depends on state, as opposd to City and State together
+            - Table 2.b and 2.c are in 2NF
+        - Tables 1e and 1f are an example of 2NF
+        - 
+    - Third Normal Form (3NF)
         - "Full normalized" as for as most are concerned
+        1. In 2NF
+        2. No non-candidate key column can depend on any non-condidate key column
+            - No transitive dependencies
+        - Tables 2.b and 2.c are also in 3NF
+        - However, table 1.b is not in 3NF form, nor is 1.c and 1.d
+            - Supplier and phone rely on each other
+        - Tables 1.e and 1.f are in 3NF
+    - Pros: 
+        - Less redundancy
+        - Less errors
+        - Easier to evolve data model
+        - Easier to read and write with consistency; all the rules are not violated
+    - Cons:
+        - Can make some queries slower if there are too many tables interdependent on each other
     
 ## Relational Databases
 - Data organized into separate tables with rows and columns
@@ -64,7 +87,7 @@
 Table 1
 
 | ID | Product   | Color       | Supplier  | Phone
-|----------------------------------------------------
+|----|-----------|-------------|-----------|---------
 | 1  | Widget    | Red         | Microsoft | 555-1234
 | 2  | Thingy    | Black, red  | Amazon    | 555-4321
 | 3  | Knicknack | Black, blue | Microsoft | 555-1234
@@ -78,5 +101,65 @@ Table 1.b
 | 3  | Knicknack | Black | Microsoft | 555-1234
 | 4  | Thingy    | red   | Amazon    | 555-4321
 | 5  | Knicknack | blue  | Microsoft | 555-1234
+
+Table 1c
+
+| ID | Product   | Supplier  | Phone
+|----|-----------|-----------|---------------
+| 1  | Widget    | Microsoft | 555-1234
+| 2  | Thingy    | Amazon    | 555-4321
+| 3  | Knicknack | Microsoft | 555-1234
+
+Table 1d
+
+| Product ID | Color   
+|------------|---------
+| 1          | Red    
+| 2          | Black    
+| 3          | Black 
+| 4          | Red    
+| 5          | Blue 
+
+Table 1.e
+
+| ID | Product   | Supplier  |
+|----|-----------|-----------|
+| 1  | Widget    | Microsoft |
+| 2  | Thingy    | Amazon    |
+| 3  | Knicknack | Microsoft |
+| 4  | Thingy    | Amazon    |
+| 5  | Knicknack | Microsoft |
+
+Table 1.f
+
+| Supplier  | Phone    |
+|-----------|----------|
+| Microsoft | 555-1234 |
+| Amazon    | 555-4321 |
+
+
+
+Table 2
+
+| CityID | City | State | Region | SalesTotal |
+|--------|------|-------|--------|------------|
+|        |      |       |        |            |
+|        |      |       |        |            |
+
+Candidate keys: CityID, City and State
+
+Table 2.b
+
+| CityID | City | State | SalesTotal |
+|--------|------|-------|------------|
+|        |      |       |            |
+|        |      |       |            |
+
+Table 2.c
+
+| State | Region |
+|-------|--------|
+|       |        |
+|       |        |
 
 - Tables are made up of data
