@@ -72,7 +72,7 @@ Table 1
 Table 1.b
 
 | ID | Product   | Color | Supplier  | Phone
-|----------------------------------------------------
+|----|-----------|-------|-----------|---------------
 | 1  | Widget    | Red   | Microsoft | 555-1234
 | 2  | Thingy    | Black | Amazon    | 555-4321
 | 3  | Knicknack | Black | Microsoft | 555-1234
