@@ -16,7 +16,13 @@ GROUP BY BillingCountry
 
 SELECT COUNT (InvoiceDate) as Count, SUM(Total) as [Total Cost]
 FROM dbo.Invoice
-WHERE InvoiceDate >= '2009' AND InvoiceDate < '2010'
+WHERE InvoiceDate BETWEEN '2009' AND '2010'
+
+--or for extra credit
+
+SELECT YEAR(InvoiceDate) AS Year, COUNT(InvoiceDate) AS Count, SUM(Total) AS [Total Cost]
+From Invoice
+GROUP BY YEAR(InvoiceDate)
 
 SELECT SUM(Quantity) as [Total]
 FROM dbo.InvoiceLine
