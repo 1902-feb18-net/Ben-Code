@@ -91,3 +91,10 @@ HAVING COUNT(FirstName) = 1
 -- 4. HAVING
 -- 5. SELECT
 -- 6. ORDER BY
+
+SELECT COUNT (InvoiceDate) as Count, SUM(Total) as [Total Cost]
+FROM dbo.Invoice
+WHERE InvoiceDate BETWEEN '2009' AND '2010'
+
+-- couple different wasy to comapre dates
+-- BETWEEN operator is inclusive of both ends

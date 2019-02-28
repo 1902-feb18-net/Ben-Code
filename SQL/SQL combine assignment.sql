@@ -1,23 +1,42 @@
 --1. which artists did not make any albums at all?
+
 SELECT *
 FROM Artist
-WHERE ArtistId = (
-	SELECT ArtistId
+WHERE ArtistId NOT IN (
+	SELECT Album.ArtistId
 	FROM Album
-	WHERE COUNT(Title) = 0
 )
 
 SELECT ar.Name
-FROM Artist AS ar INNER JOIN Album AS al ON ar.ArtistId != al.ArtistId
-GROUP BY ar.Name
-ORDER BY al.ArtistId
+FROM Artist AS ar
+EXCEPT
+SELECT ar.Name
+FROM Artist AS ar RIGHT JOIN Album AS al ON ar.ArtistId = al.ArtistId
 
-SELECT * FROM Album
 --2. which artists did not record any tracks of the Latin genre?
 
+-- Artist.ArtistId to Album.ArtistId, Album.AlbumId to Track.AlbumId, Track.GenreId to Genre.GenreId
+
+SELECT ar.Name
+FROM Artist AS ar
+	INNER JOIN Album AS al ON al.ArtistId = ar.ArtistId
+	INNER JOIN Track AS t ON t.AlbumId = al.AlbumId
+	INNER JOIN Genre AS g ON t.GenreId = g.GenreId
+WHERE g.Name != 'Latin'
+GROUP BY ar.Name
 
 --3. which video track has the longest length? (use media type table)
+SELECT *
+FROM MediaType AS mt
 
+
+--SELECT *
+--FROM Artist
+--WHERE ArtistId = (
+--	SELECT TOP(1) ArtistId
+--	FROM Album
+--	ORDER BY LEN(Title) DESC
+--)
 
 --4. find the names of the customers who live in the same city as the boss employee (the one who reports to nobody)
 

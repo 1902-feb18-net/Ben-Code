@@ -167,3 +167,95 @@ SELECT FirstName FROM Employee -- 67 (has duplicates)
 -- UNION gives you values that are in EITHER  result
 -- INTERSECT gives you values that are in BOTH results
 -- EXCEPT gives you values that are in the FIRST but NOT the SECOND result
+
+
+-- DATA MANIPULATION LANGUAGE
+
+-- SQL has many statement/commands
+-- they are categorized as a number of sub languages
+
+-- Data manipulation language (DML) operates on individual rows
+-- there are five DML commands in SQL Server
+
+-- SELECt, INSERT, UPDATE, DELETE, TRUNCATE TABLE
+
+-- SELECT is for read access to the rows
+
+-- INSERT (simple)
+INSERT INTO Genre VALUES (26, 'Misc');
+-- really we should name the columns
+-- this is more readable/less error prone and it lets us skip
+--	columns that have default values we are OK with
+INSERT INTO Genre (GenreId, Name) VALUES (26, 'Misc')
+INSERT INTO Genre (GenreId, Name) VALUES
+(
+	(SELECT MAX(GenreId) FROM Genre) + 1,
+	'Misc 2'
+)
+
+-- can insert multiple rows at once
+INSERT INTO Genre (GenreId, Name) VALUES
+	(27, 'Misc3'),
+	(28, 'Misc4');
+
+-- can insert the result  of a query
+-- this one duplicates every genre
+INSERT INTO Genre (GenreId, Name) 
+	(SELECT GenreId + 100, Name
+	FROM Genre)
+
+-- UPDATE statement
+UPDATE Genre
+SET Name = 'Misc 1' -- could change more than one column, comma separated
+WHERE Name = 'Misc';
+-- if we left out the where we would change every row 
+
+-- take the high ID copies of my Misc genres, lower the IDs and rename
+--	them to say Miscellaneous
+UPDATE Genre
+SET GenreId = GenreId - 50, Name = 'Miscellaneous ' + SUBSTRING(Name, 6, 1)
+WHERE GenreId > 100 AND Name LIKE 'Misc%'
+
+-- DELETE statement
+DELETE FROM Genre
+WHERE GenreId > 100 -- without WHERE, would delete every row
+
+-- TRUNCATE TABLE
+-- TRUNCATE TABLE Genre 
+-- -- deletes every row, no conditions
+
+-- DELETE FROM deletes every row, one at a time, slightly safer
+-- TRUNCATE TABLE deletes every row all at once, faster
+
+-- EXERCISES
+-- 1. insert two new records into the employee table.
+SELECT *
+FROM Employee
+INSERT INTO Employee (EmployeeId, LastName, FirstName, Title, ReportsTo, BirthDate, HireDate, Address, 
+City, State, Country, PostalCode, Phone, Fax, Email)
+VALUES (9, 'Ly', 'Andy', 'Self-executioner', NULL, 1994-03-25, 2019-02-27, '123 MeStreet Ave', 
+'MeVill', 'TX', 'USA', 'TNT 500', '+1 (415) 333-3333', '+1 (415) 333-3333', 'littleteacup@mevill.org')
+
+-- 2. insert two new records into the tracks table.
+SELECT *
+FROM Track
+INSERT INTO Track (TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice)
+VALUES (3504, '1234 Gonna Rock!', 348, 2, 24, 'Ben Mages', 145325, 3415345, 0.99)
+
+-- 3. update customer Aaron Mitchell's name to Robert Walter
+
+
+
+-- 4. delete one of the employees you inserted.
+
+
+-- 5. delete customer Robert Walter. (more complex than it seems!)
+DELETE FROM Customer
+WHERE FirstName = 'Robert' AND LastName = 'Walter'
+-- to preserve referential integrity, the DB throws an error
+
+-- -- we could set those foreign key values to NULL, or we could delete all of them
+
+-- so we need to remove all invoices the reference Robert and all invoice lines 
+--	that reference those invoices,  but in the reverse order - deleting robert is 
+--	the last step
