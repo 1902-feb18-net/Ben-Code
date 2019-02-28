@@ -181,3 +181,57 @@ GO
 
 SELECT dbo.GetCustomerInitials(1)
 SELECT * FROM Customer
+
+GO
+CREATE TRIGGER Movie.MovieDateModified ON Movie.Movie
+AFTER UPDATE
+AS
+BEGIN
+	-- inside a trigger you have access to two special table variables
+	-- Inserted and Deleted
+	UPDATE Movie.Movie
+	SET DateModified = GETDATE()
+	WHERE MovieId IN (SELECT MovieId FROM Inserted);
+	-- inserted has the new version of updated rows
+END
+
+SELECT * FROM Movie.Movie
+UPDATE Movie.Movie SET Title = 'LOTR: The Two Towers'
+WHERE MovieId = 2
+
+-- we can do triggers on INSERT, UPDATE, or DELETE
+-- they can be BEFORE, AFTER, or INSTEAD OF
+
+-- PROCEDURES
+
+-- procedures are like functions but they allow any SQL command inside
+--	them including DB write
+-- they don't have to return anything
+-- you can only call them with EXECUTE, never inside a SELECT or anything else
+
+GO
+CREATE PROCEDURE Movie.RenameMovies(@newname NVARCHAR(50), @rowschanged INT OUTPUT)
+AS
+BEGIN
+	-- we can use WHILE loops, IF ELSE, TRY CATCH
+	BEGIN TRY
+		IF (EXISTS (SELECT COUNT(*) FROM Movie.Movie)) = 0
+		BEGIN
+			SET @rowschanged = (SELECT COUNT(*) FROM Movie.Movie)
+			UPDATE Movie.Movie
+			SET	Title = @newname;
+		END
+		ELSE
+		BEGIN
+			RAISERROR ('no movies found!', 16, 1);
+		END
+	END TRY
+
+	BEGIN CATCH
+		PRINT ERROR_MESSAGE();
+	END CATCH
+END
+GO
+
+DECLARE @rowschanged INT;
+EXECUTE Movie.RenameMovies 'Movie', @rowschanged;
