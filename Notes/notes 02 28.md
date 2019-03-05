@@ -29,3 +29,17 @@
         - SELECT
         - DELETE
     - COMMIT TRANSACTION
+
+## OtherSQL
+- Object relationship impedance mismatch
+- Object relational mapper
+    - Java: Hibernate
+    - .NET has Identity Framework (IF)
+    - NHibernate, Dapper
+- Currently at Entity Framework 2.6
+- in .NET Core: EF Core 2.2
+    - Lazy loading
+    - many to many without a class for the junction table
+
+- For Async, look for where I return concrete values like .First, .All, COUNT, etc.
+    - Start from bottom to top
