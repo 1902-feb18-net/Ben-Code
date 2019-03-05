@@ -61,6 +61,7 @@
         - 1px solid black = value
         - Though "border: 1px solid black" is also a property its entirety
 - Selectors (CSS selectors):
+
 | Name        | Example        | Descriptor                                |
 |-------------|----------------|-------------------------------------------|
 | *           | *              | all elements                              |
@@ -70,11 +71,11 @@
 | [attr=val]  | [src=logo.png] | all with attribute set to value           |
 | [attr~=val] | [class~=asdf]  | all with attribute containing value       |
 | ,           | p,div          | all matching either selector (OR)         |
-|[concatenate]| p.login        | all matching both selector (AND)          |
+| concatenate | p.login        | all matching both selector (AND)                                                      |
 | >           | p>div          | "parent child" - all matching 2nd selector that are children of some matching 1st selector |
 | (space)     | div p          | "ancester descedenat" - all matching 2nd selector that are descedants of some matching 1st selector |
 | +           | p + p          | "next sibling" -all matching 2nd selector that are siblings directly after some matching 1st selector |
-| ~           | p ~ p          | "any sibling" - all matching 2nd selector that are any sibling of some matching 1st selector |
+| ~           | p ~ p          | "any sibling" - all matching 2nd selector that are any sibling of some matching 1st selector          |
 
 - p,div = all matching either selector (OR)
 - (combine p and .login) p.login = all matching both selector (AND)
