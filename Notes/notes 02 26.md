@@ -48,7 +48,7 @@
     - First Normal Form (1NF)
         - Theorists and developers have slightly different ideas
         1. No duplicate rows (enforce that with a primary key)
-        2. No atomic values
+        2. Only atomic values
             - For table 1, you could create extra columns for colors past the first
         3. No repeating groups of columns
             - So don't actually have multiple colors columns in table 1

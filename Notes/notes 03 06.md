@@ -1,0 +1,83 @@
+# 03/06/2019
+
+## CSS
+- Display property
+    - Has a few different values
+    - Inline
+    - Block
+    - Li {display: inline}
+        - element... element... element...
+    - Inline-block
+    - None (deletes element entirely)
+- Visibility: hidden
+    - Differs from display: none because the latter removes the element entirely while the former merely hides it
+- Position property
+    - static (default)
+    - relative (left, right, top, bottom)
+        - Able to shift element
+    - absolute (left, right, top, bottom)
+        - Not offsetting from relative object position, but relative parent container
+    - fixed (left, right, top, bottom)
+        - fixes the element to the overall viewport
+        - pastes element to window pane (think of annoying adds)
+- Layout Tools
+    - Flexbox
+    - Grid layout (useful for making 2d grid)
+    - Column layout
+- Properties
+    - Color
+        - foreground and background color
+    - font-family
+        - sets type of font (ex: timmes new roman)
+        - has generic font options
+        - Can set fallbacks, where if target font isn't found, go to next
+    - font-weight
+        - used for boldface
+    - font-style
+        - used for italics and simmilar options
+    - Width
+    - Height
+- Inheritance
+    - The behavior that some properties when set on an element is also set on all child elements
+    - some properties do not follow inheritance
+- CSS resets
+    - undoes user agent defaults and styles
+    - useful for standardizing between browsers so the style will always look the same
+    - Normalize.css, a new-ish program that compromises between resetting defaults and using them
+        - It removes browser defaults but doesn't set them to 0, just to something more reasonable
+- Media query: allows us to have additional rules for the browser
+    - Screen aspect ratio
+    - Height and width
+    - Touchscreen/mouse differences
+    - "print preview"
+- Adaptive design
+    - Write many CSS files, 1 per resolution
+- Responsive design
+    - Write 1 CSS file, page will automatically reformat without a refresh
+    - Often use CSS library to help achieve responsive design
+        - Like bootstrap
+        - Or zerb foundation
+- Bootstrap: 12 column grid
+    - easily divisble by 2, 3, 4, and 6
+    - usually don't need to break it down more than that
+    - just apply classes to elements
+
+## ASP.NET
+- IIS Express is a lightweight, self-contained version of IIS optimized for developers.  IIS express makes it easy to use the more current version of IIS to develop and test websites
+- ASP: Active Server Pages, aka "web forms"
+    - Every page the user can navigate to can have dynamic content
+    - .aspx files have special syntax to connect to .NET code behind it
+        - syntax inside HTML
+        - poor separation of concerns (hard to reuse and test)
+    - ASP.NET **MVC** is the modern framework for building web-applications in .NET with strong separation fo concerns using the MVC design pattern.
+        - models
+            - object oriented data sent to or received from client
+        - views
+            - the templates for the HTMl
+            - display logic
+            - all about layout and appearance
+                - can include css, js
+            - give views their model and render them into HTML
+        - controllers
+            - object(s) that receive requests from clients
+            - marshal the models and views together to construct the response

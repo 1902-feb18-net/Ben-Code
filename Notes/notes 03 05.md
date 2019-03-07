@@ -77,5 +77,53 @@
 | +           | p + p          | "next sibling" -all matching 2nd selector that are siblings directly after some matching 1st selector |
 | ~           | p ~ p          | "any sibling" - all matching 2nd selector that are any sibling of some matching 1st selector          |
 
-- p,div = all matching either selector (OR)
-- (combine p and .login) p.login = all matching both selector (AND)
+- pseudo-class
+    - select elements in some state
+    - at end of selector and start with :
+        - :valid
+        - :invalid
+        - :link
+        - :visited
+        - :active
+        - :focus
+        - :hover
+        - :nth-child(aN+b)
+            - ex: :nth-child(2N) and :nth-child(2N+1)
+            - can use to create a sequence of elements that alternates something (color, shade, etc.)
+        - :first-child
+        - :last-child
+- pseudo-element
+    - we use <selector> ::
+    - :: before
+    - :: after
+        - ex: a.external::after {content: "--"}
+    - :: selection (what the user is highlighting)
+- The cascade
+    - When multiple rules set the same property on an element, which one wins?
+        1. Importance
+            - Can make rules extra important by placing !important after a rule, but this is bad practice           
+        2. Specificity
+            - First, inline wins
+            - Next, whoever has more ID selectors wins
+            - Next, whoever has more class selectors
+            - Next, whoever has more tag selectors
+            - Overall, the more specific the scope, the more priority they have
+        3. Source order
+            - The later rule wins if all other things are equal
+    - Types of style sheets:
+        - User-agent styles
+            - Browser defaults
+            - E.g. font is times new roman
+        - Author styles
+            - CSS included on documents
+            - 3 ways to include CSS on document
+                1. In the HTML Head - <link rel = "stylesheet" href = "main.css"> - External //the best and proper practice
+                2. In the HTML Head - <style>p {font-weight: bold;}</style>- Internal //cannot be easily reused
+                3. In inline body - <p style="border: 1px solid black">This is a stylized line</p> //violates separation of concerns
+- **Box model**
+    - All non-content elements have -right/-left/-top/-bottom properties
+    - The order it top/right/bottom/left like a clock, so {margin: 1, 2, 3, 4} is 1 top, 2 right, 3 bottom, 4 left
+    - *Margin*
+        - *Border*
+            - *Padding*
+                - *Contents*
