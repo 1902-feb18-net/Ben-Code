@@ -42,3 +42,34 @@
                 TempData["Counter"] = 0;
             } ```
         - The other way we can keep data around to incrementally build something like an Order is with hidden form fields (corresponding to view model properties)
+- attributes
+    - [Route("ShowAllMovies")] - in contrast to global/convention based routing
+        - e.g. [/{num:int?}]
+            - this skips initial controller part with /
+        - e.g. [Index/apples]
+    - public ActionResult Index([FromQuery]) int num {}
+        -pre method won't work, but if you include '?' query string for num,  it will work
+
+## Client Server MVC
+- [Client] -requests-> [Server(MVC)]
+- [Client] <-response- [Server(MVC)]
+- From Server
+    - ASP.NET Core has a sequence of middleware plugged in in-order using .Use___ in Startup.Configure
+- From Client
+    - Other middleware ->
+        - e.g. exceptio-handling, static-file serving, etc.
+    - Routing middleware ->
+    - MVC
+    - Then the response goes back the other way
+- From MVC
+    - Filters are applied to controllers  or actions using attributes or globally in startup
+        - Controller/action selection ->
+        - Authorization filter ->
+        - Resource filters ->
+        - Exception filters ->
+        - Model binding ->
+        - Action Filters
+            - Action filters (before)
+            - Action method execution
+            - Action tilers (after)
+
