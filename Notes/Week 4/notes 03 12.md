@@ -50,7 +50,20 @@
                         - Is the sum of effort points completed in the sprint
                     - Compare production and capacity
                 - Backlog: All stories uncompleted in project
+                - Strict schedule for completing preset ammount of work with reevaluation after each sprint
             - Stakeholder
                 - Anyone with a stake in the project (anyone who cares about it)
                 - Should be involved with the development process to the extent they want to be
-                
+        - *Kanban*
+            - A lot of similarities with SCRUM
+            - No sprints
+            - More ambitious than SCRUM
+            - Continuous planning and continuous reflection/reevaluation
+            - Has "Kanban board"
+                - Each column in the board has a maximum number of points it can contain
+                - Makes real world constraint explicit and can help see problems before they occur
+                - Attempts to limit max work in progress with continuous reevaluation
+        - *CMMI*
+            - Very process-heavy version of Agile
+            - + security, accountability
+        - Getting feedback from users is essential to Agile development; without that, it's just an imitation of Agile (fake Agile)
