@@ -23,3 +23,110 @@
     - It pretends that a single application is the only thing running on the same system, when in actuality many instances can be
     - Containers flexibly use resources like memory in the same way as regular OS processes.
     - More granularity than virtual machines when creating many instances of an app
+    - Faster than virtual machines
+
+## Docker Engine
+- If we all had Windows Professional or Linux, we could install real Docker
+- Non-pro Windows 10 doesn't support containaers (yet?) so, we have to use Docker Toolbox.
+- Docker Toolbox is meant to be a one-click setup for running Linux containers on Windows using a small Linux virtual machine.
+- Counts as client/server architecture
+- Designed so you could have Docker client on one system, and the program running on another
+- Images are built in layers
+- Docker Client speaks to a Docker daemon which pulls an image from the Docker Hub
+    - Then the daemon creates a new container from image which runs executable that produces output
+    - Docker daemon streamed that output to Docker clientt, which can be sent to termina
+- Docker run <image-name>
+    - This starts a new container from the given image (downloading that image if necessary)
+- Docker pull <image-name>
+    - Just downloads the image (or updates, if there's some new version)
+- Docker image:
+    - Template for container to start
+    - Has the whole file system
+    - Has a pointer to some program inside the image that should run when we start the container
+    - Imagers are _layered_; every image has some base image, adding new layers on top of it
+
+## Dockerfile
+- Provides instructions to build a new image from some base image
+- FROM:
+    - sets the base image to use for subsequent layers
+
+## Application Deployment
+- On-premises servers/resources
+    - company that is using the service pays for it
+- Cloud resources/services
+    - **SAAS** (software as a service)
+        - webapps, Gmail, Office 365, Project1
+        - Abstract away everything but the app
+            - hardware, disk
+            - network
+            - OS
+    - **IAAS** (Infrastructure as a Service)
+        - Azure Virtual Machine
+        - Amazon EC2 (part of AWX platform)
+    - A variety of Cloud Platforms
+        - Amazon Web Services **(AWS)** is the most used/popular Cloud Platform
+        - Microsoft Azure
+        - Google Cloud
+    - On premises, cloud is called *hybrid cloud*
+    - *Multi-cloud* is using Cloud from more than one provider
+        - In the off chance taht one of the providers fails, you have a backup that would work
+    - **SLA** (Service level agreement)
+        - Is what % of the time taht the resource is available (e.g. 99.999%) [uptime]
+        - Promise that it won't be down for more than x # of hours per yea [downtime]
+                - Pay mroe for guarantee (yay... what a scam)
+    - Region
+        - East US, Central US, Australia, West Europe, etc.
+        - Can have our resource guaranteed on physical server from an area
+        - Have copies of our app in those apps, for faster access for customer
+        - Redundency is good in case one area is down
+    - **Availability Zone**
+        - The area the service is available
+        - 1, 2, 3, 4
+            - The areas should be in different areas to stop things like power outages or accidents from dropping all the Servers at once.
+            - One might go down, but it is unlikely that all of them will.
+    - Storage
+        - Azure Disks, Files, blobs, Amazon
+        - Disk storage: connect to 1 VM at a time
+        - File storage: connect to may things at once
+        - Blob storage: unstructured, no dirs, no FS
+            - Large/streamed files
+            - Static asset files like images
+    - **PAAS** (Platform as a service)
+        - Abstract away physical location, electricity, some/most physical stuff
+        - Abstract away OS, network, disk, hardware
+        - Azure App Service
+            - Take care of installing languages, compilers, and frameworks, so you just plug in your code
+        - Amazon Elastic Beanstalk
+        - Azure Pipelines
+        - Amazon code build, Amazon code pipeline
+    - **CAAS** (Container as a service)
+        - Doesn't know what OS we're working with
+    - **DBAAS** (Database as a service)
+        - Database as a service (Azure SQL)
+    - Public cloud
+    - Private cloud
+    - Government cloud (can't leave the country)
+- **CI** (Continous integration) tools: 
+    - Azure Pipeline
+    - Jenkins
+    - Travis CI
+    - Circle CI
+    - Appveyor
+    - AWS Code Pipeline/Codebuild
+    - GoCD (Go Continuous Deployment)
+
+## Project 2
+- Use GitHub projects
+   - Don't need Azure board this time
+- Data model (what data is there and what col  are there)
+    - At least 2 many to many relationships
+    - As complex as project 1
+- User interactions
+    - They should be able to interact with a number of features/contain complexity
+- Requirement for Authentication
+    - Some idea of users (username, password)
+    - Not all users are equal (e.g. admin can view more  things than users)
+- Throw in layered architecture?
+- CI, Pipeline, deploy to App Service
+- Branching structure
+- Has to be MVC, EF, but can use any kinds  of SQL or external API's

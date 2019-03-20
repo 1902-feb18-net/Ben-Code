@@ -36,4 +36,4 @@
     - SonarQube is an open-source platform developed by SonarSource for continuous inspection of code quality to perform automatic reviews with static analysis of code to detect bugs, code smells, a nd security vulnerabilities.
     - Azure DevOps uses SonarQube (SonarCloud) -> app(VM) (App Service)
 
-MSYS_NO_PATHCONV=1 dotnet sonarscanner begin /k:"mages1902project1" /o:"impstar-github" /d:sonar.host.url="https//sonarcloud.io" /d:sonar.login="65fd005b4941294ffe126f19223905b95966df29"
+MSYS_NO_PATHCONV=1 dotnet sonarscanner begin /k:"mages1902project1" /d:sonar.organization="impstar-github" /d:sonar.host.url="https//sonarcloud.io" /d:sonar.login="65fd005b4941294ffe126f19223905b95966df29"
